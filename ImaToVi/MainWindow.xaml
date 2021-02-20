@@ -1,0 +1,867 @@
+﻿<Window x:Class="ImaToVi.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImaToVi"
+        mc:Ignorable="d"
+        Title="ImaToVi" Height="600" Width="810" WindowStartupLocation="Manual" ResizeMode="NoResize">
+    <StackPanel Orientation="Horizontal">
+        <Border  Width="500" BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" BorderThickness="5" Margin="5">
+            <Grid>
+                <!--#region 色見の設定-->
+                <Grid.Resources>
+                    <Style TargetType="{x:Type GridSplitter}">
+                        <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"/>
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    </Style>
+                </Grid.Resources>
+                <!--#endregion-->
+                <!--#region グリッドの設定-->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <!--#endregion-->
+                <!--#regionグリッドスプリッター-->
+                <GridSplitter Grid.Column="1" Grid.RowSpan="9" Width="3"/>
+                <GridSplitter Grid.Column="3" Grid.RowSpan="9" Width="3"/>
+                <GridSplitter Grid.Column="5" Grid.RowSpan="9" Width="3"/>
+                <GridSplitter Grid.Column="7" Grid.RowSpan="9" Width="3"/>
+                <GridSplitter Grid.Row="1" Grid.ColumnSpan="9" Height="3"/>
+                <GridSplitter Grid.Row="3" Grid.ColumnSpan="9" Height="3"/>
+                <GridSplitter Grid.Row="5" Grid.ColumnSpan="9" Height="3"/>
+                <GridSplitter Grid.Row="7" Grid.ColumnSpan="9" Height="3"/>
+                <!--#endregion-->
+                <!--#region 各設定-->
+                <Grid x:Name="DD00" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name00" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count00" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type00" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size00" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD10" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="2"  Grid.Column="0">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name10" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count10" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type10" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size10" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD20" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="4"  Grid.Column="0">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name20" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count20" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type20" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size20" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD30" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="6"  Grid.Column="0">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name30" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count30" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type30" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size30" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD40" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="8"  Grid.Column="0">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name40" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count40" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type40" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size40" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD01" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Column="2">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name01" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count01" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type01" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size01" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD11" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="2"  Grid.Column="2">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name11" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count11" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type11" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size11" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD21" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="4"  Grid.Column="2">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name21" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count21" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type21" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size21" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD31" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="6"  Grid.Column="2">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name31" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count31" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type31" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size31" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD41" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="8"  Grid.Column="2">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name41" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count41" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type41" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size41" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD02" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Column="4">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name02" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count02" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type02" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size02" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD12" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="2"  Grid.Column="4">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name12" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count12" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type12" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size12" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD22" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="4"  Grid.Column="4">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name22" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count22" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type22" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size22" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD32" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="6"  Grid.Column="4">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name32" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count32" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type32" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size32" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD42" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="8"  Grid.Column="4">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name42" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count42" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type42" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size42" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD03" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Column="6">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name03" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count03" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type03" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size03" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD13" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="2"  Grid.Column="6">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name13" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count13" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type13" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size13" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD23" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="4"  Grid.Column="6">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name23" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count23" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type23" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size23" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD33" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="6"  Grid.Column="6">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name33" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count33" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type33" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size33" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD43" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="8"  Grid.Column="6">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name43" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count43" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type43" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size43" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD04" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Column="8">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name04" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count04" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type04" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size04" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD14" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="2"  Grid.Column="8">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name14" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count14" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type14" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size14" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD24" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="4"  Grid.Column="8">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name24" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count24" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type24" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size24" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD34" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="6"  Grid.Column="8">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name34" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count34" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type34" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size34" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <Grid x:Name="DD44" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="8"  Grid.Column="8">
+                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
+                        BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1.5*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Name" FontSize="11"/>
+                            <TextBlock Text="Count" Grid.Row="1" FontSize="11"/>
+                            <TextBlock Text="Type" Grid.Row="2" FontSize="11"/>
+                            <TextBlock Text="Size" Grid.Row="3" FontSize="11"/>
+                            <TextBlock x:Name="Name44" Grid.Column="1" FontSize="11"/>
+                            <TextBlock x:Name="Count44" Grid.Column="1" Grid.Row="1" FontSize="11"/>
+                            <TextBlock x:Name="Type44" Grid.Column="1" Grid.Row="2" FontSize="11"/>
+                            <TextBlock x:Name="Size44" Grid.Column="1" Grid.Row="3" FontSize="11"/>
+                            <TextBox Grid.ColumnSpan="2" Grid.RowSpan="4" Background="Transparent" BorderBrush="#00ABADB3" IsReadOnly="True" />
+                        </Grid>
+                    </Border>
+                    <Button Content="X" HorizontalAlignment="Left" Margin="66,15,0,0" VerticalAlignment="Top" 
+                    Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
+                </Grid>
+                <!--#endregion-->
+            </Grid>
+        </Border>
+        <StackPanel Width="280">
+            <Border Height="200" BorderThickness="3"  Margin="10,20,10,0" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
+                <Image />
+            </Border>
+            <TextBlock Margin="0,20,0,0" Text="[timestamp]           ↓スタート位置" HorizontalAlignment="Center" FontSize="16"/>
+            <Border Margin="10,3,10,0" BorderThickness="3" BorderBrush="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
+                <Grid Height="100" >
+                    <Grid.Resources>
+                        <Style TargetType="{x:Type GridSplitter}">
+                            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"/>
+                            <Setter Property="IsEnabled" Value="False"/>
+                            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                        </Style>
+                    </Grid.Resources>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <GridSplitter Grid.Column="1" Grid.RowSpan="5" Width="3"/>
+                    <GridSplitter Grid.Row="1" Grid.ColumnSpan="3" Height="3"/>
+                    <GridSplitter Grid.Row="3" Grid.ColumnSpan="3" Height="3"/>
+                    <RadioButton  Grid.Column="0" Grid.Row="0" Content="None" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,0" FontSize="14" Checked="None_Checked"/>
+                    <RadioButton  Grid.Row="2" Content="deg" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,0" FontSize="14" Checked="Deg_Checked"/>
+                    <RadioButton  Grid.Column="0" Grid.Row="4" Content="msec" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,0" FontSize="14" Checked="Msec_Checked"/>
+                    <TextBox x:Name="radDeg" Grid.Column="2" Grid.Row="2" TextWrapping="Wrap" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100"/>
+                    <TextBox x:Name="radMsec" Grid.Column="2" Grid.Row="4" TextWrapping="Wrap" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100"/>
+                </Grid>
+            </Border>
+            <TextBlock TextWrapping="Wrap" Text="TimeStampSize" HorizontalAlignment="Center" FontSize="16" Margin="0,10,0,0"/>
+            <Slider TickPlacement="TopLeft" Width="200" Foreground="Black" Margin="10" Maximum="60"/>
+            <Grid Height="40" Margin="10,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="83*"/>
+                    <ColumnDefinition Width="135*"/>
+                    <ColumnDefinition Width="42*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="SaveDirectory" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBox x:Name="SaveDirectory" Text="" Grid.Column="1" Margin="10" />
+                <Button Content="..." Grid.Column="2" Margin="0,5" Click="SelectSaveFolder"/>
+
+            </Grid>
+            <StackPanel Height="77" Orientation="Horizontal">
+                <Button Content="Convert" Width="74" Margin="40,20,30,20" Click="StartConvert"/>
+                <Button Content="Exit" Width="75" Margin="30,20,0,20" Click="eClose"/>
+            </StackPanel>
+        </StackPanel>
+
+    </StackPanel>
+
+</Window>
