@@ -26,6 +26,7 @@ namespace ImaToVi
     public partial class MainWindow : System.Windows.Window
     {
         Mat[][] MatDataS = new Mat[25][];
+        int[] firstImSize = new int[2];
         int[] Matid = new int[25] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                                     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
                                     0, 0, 0, 0, 0 };
@@ -33,7 +34,7 @@ namespace ImaToVi
         public MainWindow()
         {
             InitializeComponent();
-            SaveDirectory.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            SaveDirectory.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+"/test.avi";
         }
 
         /// <summary>
@@ -82,7 +83,26 @@ namespace ImaToVi
             CountDy.Text = fileCount.ToString();
             TypeDy.Text = (ext);
             SizeDy.Text = imWidth.ToString() + "x" + imHeight.ToString();
-
+            if (sectionIdnumber == 0)
+            {
+                firstImSize[0] = imWidth;
+                firstImSize[1] = imHeight;
+                var sightDy = (Border)this.FindName("sight" + sectionIdString);
+                sightDy.Background = new SolidColorBrush(Colors.Green);
+            }
+            else
+            {
+                if (firstImSize[0] != imWidth || firstImSize[1] != imHeight)
+                {
+                    var sightDy = (Border)this.FindName("sight" + sectionIdString);
+                    sightDy.Background = new SolidColorBrush(Colors.Yellow);
+                }
+                else
+                {
+                    var sightDy = (Border)this.FindName("sight" + sectionIdString);
+                    sightDy.Background = new SolidColorBrush(Colors.Green);
+                }
+            }
         }
 
 
@@ -172,22 +192,43 @@ namespace ImaToVi
             }
             Console.WriteLine(maxRow);
             Console.WriteLine(maxColumn);
+            var paletteImWidth = firstImSize[0] * (maxColumn + 1);
+            var paletteImHeight = firstImSize[1] * (maxRow + 1);
+            Mat src = OpenCvSharp.Extensions.BitmapConverter.ToMat(Properties.Resources.Black);
 
-            var test = new System.Drawing.Bitmap((new Uri(System.AppDomain.CurrentDomain.BaseDirectory + "Black.png", UriKind.Absolute).ToString()));
-            var mattest = new Mat();
-            OpenCvSharp.Extensions.BitmapConverter.ToMat(test, mattest);
-            
+            //根底の画像を設定
+            Mat paletteIm = new Mat();
+            Cv2.Resize(src,paletteIm,new OpenCvSharp.Size(paletteImWidth,paletteImHeight),0,0,InterpolationFlags.Cubic);
 
-            foreach (Mat img in MatDataS[0])
+
+
+            VideoWriter video = new VideoWriter(SaveDirectory.Text, FourCC.MJPG, int.Parse(fps.Text), new OpenCvSharp.Size(paletteImWidth,paletteImHeight));
+            int indexNum;
+            for (var i = 0; i< MatDataS[0].Length; i++)
             {
-                Console.WriteLine(img.Size().ToString());
-            }
-            VideoWriter video = new VideoWriter(SaveDirectory.Text, FourCC.MJPG, 1, new OpenCvSharp.Size(2416, 4102));
-            foreach (Mat img in MatDataS[0])
-            {
-                video.Write(img);
+                var paletteImTemp = paletteIm;
+                for (var row = 0; row <= maxRow; row++)
+                {
+                    for (var col = 0; col <= maxColumn; col++)
+                    {
+                        indexNum = row * 5 + col;
+                        if (MatDataS[indexNum][i] != null)
+                        {
+                            //貼り付け範囲の指定
+                            var rect = new OpenCvSharp.Rect(firstImSize[0] * col, firstImSize[1] * row, firstImSize[0], firstImSize[1]);
+                            paletteImTemp[rect] = MatDataS[indexNum][i];
+                        }
+                    }
+                }
+                video.Write(paletteImTemp);
             }
             video.Dispose();
+
+            //foreach (Mat img in MatDataS[0])
+            //{
+            //    video.Write(img);
+            //}
+
         }
 
 

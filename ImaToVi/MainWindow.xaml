@@ -55,8 +55,8 @@
                 <!--#endregion-->
                 <!--#region 各設定-->
                 <Grid x:Name="DD00" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
-                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Border BorderBrush="Black" x:Name="sight00" BorderThickness="1" HorizontalAlignment="Left" 
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
                         <Grid Margin="2">
@@ -85,7 +85,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD10" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="2"  Grid.Column="0">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight10" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -115,7 +115,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD20" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="4"  Grid.Column="0">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight20" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -145,7 +145,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD30" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="6"  Grid.Column="0">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight30" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -175,7 +175,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD40" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="8"  Grid.Column="0">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight40" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -205,7 +205,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD01" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Column="2">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight01" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -235,7 +235,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD11" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="2"  Grid.Column="2">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight11" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -265,7 +265,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD21" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="4"  Grid.Column="2">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight21" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -295,7 +295,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD31" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="6"  Grid.Column="2">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight31" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -325,7 +325,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD41" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="8"  Grid.Column="2">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight41" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -355,7 +355,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD02" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Column="4">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight02" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -385,7 +385,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD12" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="2"  Grid.Column="4">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight12" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -415,7 +415,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD22" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="4"  Grid.Column="4">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight22" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -445,7 +445,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD32" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="6"  Grid.Column="4">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight32" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -475,7 +475,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD42" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="8"  Grid.Column="4">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight42" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -505,7 +505,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD03" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Column="6">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight03" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -535,7 +535,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD13" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="2"  Grid.Column="6">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight13" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -565,7 +565,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD23" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="4"  Grid.Column="6">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight23" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -595,7 +595,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD33" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="6"  Grid.Column="6">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight33" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -625,7 +625,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD43" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="8"  Grid.Column="6">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight43" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -655,7 +655,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD04" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Column="8">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight04" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -685,7 +685,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD14" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="2"  Grid.Column="8">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight14" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -715,7 +715,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD24" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="4"  Grid.Column="8">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight24" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -745,7 +745,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD34" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="6"  Grid.Column="8">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight34" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -775,7 +775,7 @@
                     Width="16" Height="16" FontSize="10" Background="White" BorderBrush="#FF595959" />
                 </Grid>
                 <Grid x:Name="DD44" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver" Grid.Row="8"  Grid.Column="8">
-                    <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" 
+                    <Border BorderBrush="Black" x:Name="sight44" BorderThickness="1" HorizontalAlignment="Left" 
                     Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
@@ -808,10 +808,10 @@
             </Grid>
         </Border>
         <StackPanel Width="280">
-            <Border Height="200" BorderThickness="3"  Margin="10,20,10,0" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
+            <Border Height="180" BorderThickness="3"  Margin="10,20,10,0" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}">
                 <Image />
             </Border>
-            <TextBlock Margin="0,20,0,0" Text="[timestamp]           ↓スタート位置" HorizontalAlignment="Center" FontSize="16"/>
+            <TextBlock Margin="0,10,0,0" Text="timestamp" HorizontalAlignment="Center" FontSize="16"/>
             <Border Margin="10,3,10,0" BorderThickness="3" BorderBrush="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
                 <Grid Height="100" >
                     <Grid.Resources>
@@ -839,17 +839,21 @@
                     <RadioButton  Grid.Column="0" Grid.Row="0" Content="None" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,0" FontSize="14" Checked="None_Checked"/>
                     <RadioButton  Grid.Row="2" Content="deg" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,0" FontSize="14" Checked="Deg_Checked"/>
                     <RadioButton  Grid.Column="0" Grid.Row="4" Content="msec" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,0" FontSize="14" Checked="Msec_Checked"/>
-                    <TextBox x:Name="radDeg" Grid.Column="2" Grid.Row="2" TextWrapping="Wrap" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100"/>
-                    <TextBox x:Name="radMsec" Grid.Column="2" Grid.Row="4" TextWrapping="Wrap" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100"/>
+                    <TextBox x:Name="radDeg" Grid.Column="2" Grid.Row="2" TextWrapping="Wrap" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" TextAlignment="Right"/>
+                    <TextBox x:Name="radMsec" Grid.Column="2" Grid.Row="4" TextWrapping="Wrap" Text="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" TextAlignment="Right"/>
                 </Grid>
             </Border>
             <TextBlock TextWrapping="Wrap" Text="TimeStampSize" HorizontalAlignment="Center" FontSize="16" Margin="0,10,0,0"/>
-            <Slider TickPlacement="TopLeft" Width="200" Foreground="Black" Margin="10" Maximum="60"/>
+            <Slider TickPlacement="TopLeft" Width="200" Foreground="Black" Margin="10" Maximum="10"/>
+            <StackPanel Height="30" Margin="10,10,10,0" Orientation="Horizontal">
+                <TextBlock x:Name="fps" TextWrapping="Wrap" Text="FPS" Width="76" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Margin="5,0,0,0"/>
+                <TextBox TextWrapping="Wrap" Text="30" Width="150" Margin="10,3,0,3" FontSize="16" TextAlignment="Right"/>
+            </StackPanel>
             <Grid Height="40" Margin="10,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="83*"/>
                     <ColumnDefinition Width="135*"/>
-                    <ColumnDefinition Width="42*"/>
+                    <ColumnDefinition Width="42"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Text="SaveDirectory" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
                 <TextBox x:Name="SaveDirectory" Text="" Grid.Column="1" Margin="10" />
