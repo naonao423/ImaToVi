@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ImaToVi"
         mc:Ignorable="d"
-        Title="ImaToVi" Height="600" Width="810" WindowStartupLocation="Manual" ResizeMode="NoResize">
-    <StackPanel Orientation="Horizontal">
+        Title="ImaToVi -初めての方は?押して-" Height="600" Width="810" WindowStartupLocation="Manual" ResizeMode="NoResize">
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
         <Border  Width="500" BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" BorderThickness="5" Margin="5">
             <Grid>
                 <!--#region 色見の設定-->
@@ -56,7 +56,7 @@
                 <!--#region 各設定-->
                 <Grid x:Name="DD00" Drop="Grid_Drop" PreviewDragOver="Grid_PreviewDragOver">
                     <Border BorderBrush="Black" x:Name="sight00" BorderThickness="1" HorizontalAlignment="Left" 
-                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24"/>
+                    Height="24" Margin="10,10,0,0" VerticalAlignment="Top" Width="24" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
                     <Border BorderBrush="{DynamicResource {x:Static SystemColors.AppWorkspaceBrushKey}}" 
                         BorderThickness="1" HorizontalAlignment="Left" Height="65" Margin="5,39,0,0" VerticalAlignment="Top" Width="86" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
                         <Grid Margin="2">
@@ -846,8 +846,8 @@
             <TextBlock TextWrapping="Wrap" Text="TimeStampSize" HorizontalAlignment="Center" FontSize="16" Margin="0,10,0,0"/>
             <Slider TickPlacement="TopLeft" Width="200" Foreground="Black" Margin="10" Maximum="10"/>
             <StackPanel Height="30" Margin="10,10,10,0" Orientation="Horizontal">
-                <TextBlock x:Name="fps" TextWrapping="Wrap" Text="FPS" Width="76" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Margin="5,0,0,0"/>
-                <TextBox TextWrapping="Wrap" Text="30" Width="150" Margin="10,3,0,3" FontSize="16" TextAlignment="Right"/>
+                <TextBlock TextWrapping="Wrap" Text="FPS" Width="76" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Margin="5,0,0,0"/>
+                <TextBox  x:Name="fps" TextWrapping="Wrap" Text="30" Width="150" Margin="10,3,0,3" FontSize="16" TextAlignment="Right"/>
             </StackPanel>
             <Grid Height="40" Margin="10,0">
                 <Grid.ColumnDefinitions>
@@ -860,12 +860,17 @@
                 <Button Content="..." Grid.Column="2" Margin="0,5" Click="SelectSaveFolder"/>
 
             </Grid>
-            <StackPanel Height="77" Orientation="Horizontal">
-                <Button Content="Convert" Width="74" Margin="40,20,30,20" Click="StartConvert"/>
-                <Button Content="Exit" Width="75" Margin="30,20,0,20" Click="eClose"/>
+            <StackPanel Height="71" Orientation="Horizontal">
+                <Button Width="114" Margin="20,20,10,20" Click="StartConvert">
+                    <Grid Width="114">
+                        <ProgressBar x:Name="Progress" Height="32"/>
+                        <TextBlock Text="Convert" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="14"/>
+                    </Grid>
+                </Button>
+                <Button Content="Exit" Width="75" Margin="10,20,0,20" Click="eClose"/>
+                <Button Content="?" Width="30" Margin="15,20,0,20" Click="help"/>
             </StackPanel>
         </StackPanel>
-
     </StackPanel>
 
 </Window>

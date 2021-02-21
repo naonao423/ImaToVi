@@ -30,11 +30,13 @@ namespace ImaToVi
         int[] Matid = new int[25] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                                     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
                                     0, 0, 0, 0, 0 };
+        int minCount = 1000000;
 
         public MainWindow()
         {
             InitializeComponent();
             SaveDirectory.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)+"/test.avi";
+            Progress.Value = 0;
         }
 
         /// <summary>
@@ -46,12 +48,9 @@ namespace ImaToVi
             string sectionIdString = sectionId.Split(new string[] { "D" }, StringSplitOptions.None)[2];
             char[] sectionIdStrings = sectionIdString.ToCharArray();
             int sectionIdnumber = (int)Char.GetNumericValue(sectionIdStrings[0]) * 5 + (int)Char.GetNumericValue(sectionIdStrings[1]);
-            Console.WriteLine(sectionIdnumber);
-
             string[] fileList = Directory.GetFiles(filePath, "*", SearchOption.TopDirectoryOnly);
             int fileCount = fileList.Length;
             var ext = System.IO.Path.GetExtension(fileList[0]).ToLower();
-            Console.WriteLine(fileList[0]);
             MatDataS[sectionIdnumber] = new Mat[fileCount];
             int imWidth;
             int imHeight;
@@ -61,12 +60,13 @@ namespace ImaToVi
                imWidth = firstPicture.Size().Width;
                imHeight = firstPicture.Size().Height;
             }
+            var errorExt = 0;
             foreach (string file in fileList)
             {
                 //画像のデータを保管
                 MatDataS[sectionIdnumber][ident] = new Mat(file);
                 if (ext != System.IO.Path.GetExtension(file).ToLower()){
-                    return;
+                    errorExt = 1;
                 }
                 else
                 {
@@ -83,6 +83,10 @@ namespace ImaToVi
             CountDy.Text = fileCount.ToString();
             TypeDy.Text = (ext);
             SizeDy.Text = imWidth.ToString() + "x" + imHeight.ToString();
+            if ( minCount > fileCount)
+            {
+                minCount = fileCount;
+            }
             if (sectionIdnumber == 0)
             {
                 firstImSize[0] = imWidth;
@@ -101,6 +105,11 @@ namespace ImaToVi
                 {
                     var sightDy = (Border)this.FindName("sight" + sectionIdString);
                     sightDy.Background = new SolidColorBrush(Colors.Green);
+                }
+            if (errorExt == 1)
+                {
+                    var sightDy = (Border)this.FindName("sight" + sectionIdString);
+                    sightDy.Background = new SolidColorBrush(Colors.Red);
                 }
             }
         }
@@ -169,6 +178,12 @@ namespace ImaToVi
         /// </summary>
         private void StartConvert(object sender, RoutedEventArgs e)
         {
+            if (MatDataS[0] == null)
+            {
+                return;
+            }
+
+            Progress.Value = 0;
             //まずインプットされているエリアの取得からする
             var maxColumn = 0;
             var maxRow = 0;
@@ -190,8 +205,6 @@ namespace ImaToVi
                 }
                 ++ident;
             }
-            Console.WriteLine(maxRow);
-            Console.WriteLine(maxColumn);
             var paletteImWidth = firstImSize[0] * (maxColumn + 1);
             var paletteImHeight = firstImSize[1] * (maxRow + 1);
             Mat src = OpenCvSharp.Extensions.BitmapConverter.ToMat(Properties.Resources.Black);
@@ -199,13 +212,14 @@ namespace ImaToVi
             //根底の画像を設定
             Mat paletteIm = new Mat();
             Cv2.Resize(src,paletteIm,new OpenCvSharp.Size(paletteImWidth,paletteImHeight),0,0,InterpolationFlags.Cubic);
-
-
-
+           
+            //動画の作成
             VideoWriter video = new VideoWriter(SaveDirectory.Text, FourCC.MJPG, int.Parse(fps.Text), new OpenCvSharp.Size(paletteImWidth,paletteImHeight));
             int indexNum;
-            for (var i = 0; i< MatDataS[0].Length; i++)
+            Console.WriteLine(minCount);
+            for (var i = 0; i< minCount; i++)
             {
+                    Progress.Value += 100/minCount;
                 var paletteImTemp = paletteIm;
                 for (var row = 0; row <= maxRow; row++)
                 {
@@ -258,6 +272,12 @@ namespace ImaToVi
             radDeg.IsEnabled = false;
             radMsec.IsEnabled = true;
 
+        }
+
+        private void help(object sender, RoutedEventArgs e)
+        {
+            var window = new help();
+            bool? res = window.ShowDialog();
         }
     }
 }
