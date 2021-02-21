@@ -1,0 +1,41 @@
+﻿<Window x:Class="ImaToVi.help"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImaToVi"
+        mc:Ignorable="d"
+        Title="使い方。" Height="540" Width="400" ResizeMode="NoResize" WindowStyle="ToolWindow">
+    <StackPanel>
+        <TextBlock TextWrapping="Wrap" 
+                   Height="440" Margin="20,10,20,0">
+            これは高速度カメラで撮影した画像を動画に結合やタイムスタンプを付けて生成することができるソフトです。<LineBreak />
+            <LineBreak />
+            使い方：<LineBreak />
+            撮影した連番画像が入ったフォルダを一番左上に入れてください。（それ以外のところに入れるとおそらく動作しません。）<LineBreak />
+            <LineBreak />
+            フォルダを入れると<LineBreak />
+            *  そのフォルダに入っているファイルの数(count)<LineBreak />
+            *  そのフォルダに入っている画像の拡張子(type)<LineBreak />
+            *  そのフォルダの画像のサイズ（size）<LineBreak />
+             が出て、緑色に点灯します.<LineBreak />
+            <LineBreak />
+            次に結合したい位置に次のフォルダを入れてください。<LineBreak />
+            （例えば下にくっつけたいならその下のブロックに入れる）<LineBreak />
+            
+            右側のNone Deg Msecのはタイムスタンプを結合した動画に付けるかという設定です。<LineBreak />
+            Deg,Msecを選択した場合どのタイミングから表示するか打ち込んでください。<LineBreak />
+            （基本的にdegは-30や-20です）<LineBreak />
+            
+            Convertを押せば動画が出ます！<LineBreak />
+            
+            ※黄色に点灯したときはファイルの画像のサイズが一番左上の画像群と違う。<LineBreak />
+            ※赤色に点灯したときはファイルの拡張子が違うものがフォルダに混ざっているとき。<LineBreak />
+            この二つが点灯したときはフォルダ内のファイルの処理をしないとエラーが出る可能性があります.
+            
+            
+            
+        </TextBlock>
+        <Button Content="Close" Height="38" Margin="10,0" Click="Button_Click"/>
+    </StackPanel>
+</Window>
